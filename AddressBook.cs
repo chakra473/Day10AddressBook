@@ -30,6 +30,7 @@ namespace list
             foreach(Person person in persons)
             {
                 Console.WriteLine(person.Result());
+                Console.WriteLine("\n****");
                 Console.WriteLine("\n");
             }
             
