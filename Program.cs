@@ -9,15 +9,14 @@ namespace list
         {
             AddressBook addressBook = new AddressBook();
             addressBook.Display();
-            Person person = new Person();
-           
-            addressBook.Display();
-            
+
             while (true)
             {
-                Console.WriteLine("press:D to delete the contact \npress:E to edit the contact \npress:A to add the contact \npress:s to display the details ");
+               
+                Person person = new Person();
+                Console.WriteLine("press:R to remove the contact \npress:E to edit the contact \npress:A to add the contact \npress:D to display the details ");
                 char c = char.Parse(Console.ReadLine());
-                if ((c == 'D') || (c == 'd'))
+                if ((c == 'R') || (c == 'r'))
                 {
                     Console.WriteLine("enter name to delete");
                     string dname = Console.ReadLine();
@@ -39,10 +38,17 @@ namespace list
                     person.PhoneNumber = phoneNumber;
                     person.PostalCode = postalCode;
                     addressBook.AddPerson(person);
-                }
-                else if((c=='S')||(c=='s'))
-                {
                     addressBook.Display();
+                }
+                else if((c=='D')||(c=='d'))
+                {
+                  addressBook.Display();
+                }
+                else if((c=='E')||(c=='e'))
+                {
+                    Console.WriteLine("enter name to edit");
+                    string ename=Console.ReadLine();
+                    addressBook.Edit(ename);
                 }
                 else
                 {

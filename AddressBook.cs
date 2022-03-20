@@ -15,13 +15,13 @@ namespace list
         public AddressBook()
         {
             string jsonContent = File.ReadAllText(@"D:\BRIDGELABZVS\snake and ladder\list\adress.json");
-            if(jsonContent.Length>0)
+            if (jsonContent.Length > 0)
             {
-                persons=JsonConvert.DeserializeObject<List<Person>>(jsonContent);
+                persons = JsonConvert.DeserializeObject<List<Person>>(jsonContent);
             }
             else
             {
-                persons=new List<Person>();
+                persons = new List<Person>();
             }
         }
         public void Display()
@@ -52,6 +52,26 @@ namespace list
             string jsonData=JsonConvert.SerializeObject(persons);
             File.WriteAllText(@"D:\BRIDGELABZVS\snake and ladder\list\adress.json", jsonData);
 
+        }
+        public void Edit(string Name)
+        {
+            for (int i = 0; i < persons.Count; i++)
+            {
+                if (persons[i].Name == Name)
+                {
+                    Console.WriteLine("enter your name");
+                    persons[i].Name =Console.ReadLine();
+                    Console.WriteLine("enter your city ");
+                    persons[i].City = Console.ReadLine();
+                    Console.WriteLine("enter your phone number");
+                    persons[i].PhoneNumber = long.Parse(Console.ReadLine());
+                    Console.WriteLine("enter your postal code");
+                    persons[i].PostalCode = long.Parse(Console.ReadLine());
+
+                }
+            }
+            string jsonData = JsonConvert.SerializeObject(persons);
+            File.WriteAllText(@"D:\BRIDGELABZVS\snake and ladder\list\adress.json", jsonData);
         }
     }
 }
