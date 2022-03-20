@@ -40,21 +40,7 @@ namespace list
             string jsonData=JsonConvert.SerializeObject(persons);
             File.WriteAllText(@"D:\BRIDGELABZVS\snake and ladder\list\adress.json", jsonData);
         }
-        public void RemovePerson(string Name)
-        {
-            Person person = null;
-            foreach(Person p in persons)
-            {
-                if(p.Name == Name)
-                {
-                    person = p;
-                }
-            }
-            persons.Remove(person);
-            string jsonData=JsonConvert.SerializeObject(persons);
-            File.WriteAllText(@"D:\BRIDGELABZVS\snake and ladder\list\adress.json", jsonData);
-
-        }
+        
         public void Edit(string Name)
         {
             for (int i = 0; i < persons.Count; i++)
