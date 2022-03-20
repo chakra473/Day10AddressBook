@@ -14,16 +14,9 @@ namespace list
             {
                
                 Person person = new Person();
-                Console.WriteLine("press:R to remove the contact \npress:E to edit the contact \npress:A to add the contact \npress:D to display the details ");
+                Console.WriteLine("press:E to edit the contact \npress:A to add the contact \npress:D to display the details ");
                 char c = char.Parse(Console.ReadLine());
-                if ((c == 'R') || (c == 'r'))
-                {
-                    Console.WriteLine("enter name to delete");
-                    string dname = Console.ReadLine();
-                    person.Name = dname;
-                    addressBook.RemovePerson(dname);
-                }
-                else if ((c=='A') || (c=='a'))
+                if ((c=='A') || (c=='a'))
                 {
                     Console.WriteLine("enter your name");
                     string name = Console.ReadLine();
